@@ -1,9 +1,11 @@
 .login-button {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin: 20px;
   gap: 7px;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .nav-section {
@@ -37,11 +39,43 @@
 }
 
 .search-bar {
-  margin-left: auto
+  margin-left: auto;
+  padding-right: 20px;
+  border-bottom: 1px solid #000;
 }
 
 input {
   border: none;
-  border-bottom: 1px solid #000;
-  outline: none;
+  /* outline: none; */
+}
+
+.product-all {
+  display: flex;
+  justify-content: center;
+}
+
+.product-card {
+  padding: 5px;
+}
+
+.product-card div {
+  padding-bottom: 5px;
+}
+
+.product-card:hover {
+  background-color: white;
+  transform: scale(1.1); /* 크기를 1.2배로 확대 */
+  transition: transform .7s ease;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.product-card img {
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+.new-tag {
+  color: red;
+  font-size: 13px;
 }
