@@ -1,13 +1,27 @@
 import React from 'react'
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 
-const ProductDetail = () => {
+const ProductDetail = ({ productList }) => {
 
-  const {id} = useParams();
+  const { id } = useParams();
+
+  const item = productList.find(item => item.id === id);
 
   return (
-    <div>
-        <h1>제품상세페이지 {id}</h1>
+    <div className='product-detail'>
+      <Container>
+        <Row>
+          <Col lg={7}>
+            <img src={item?.img} alt="" />
+          </Col>
+          <Col>
+            <h3>{item?.title}</h3>
+            <div>{item?.price}원</div>
+            <Button>구매하기</Button>
+          </Col>
+        </Row>
+      </Container>
     </div>
   )
 }

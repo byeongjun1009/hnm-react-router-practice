@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
+  cursor: pointer;
 }
 
 .menu-area {
@@ -78,4 +79,8 @@ input {
 .new-tag {
   color: red;
   font-size: 13px;
+}
+
+.product-detail img {
+  width: 100%;
 }

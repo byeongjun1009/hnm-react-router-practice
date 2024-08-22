@@ -19,19 +19,32 @@ import PrivateRoute from './route/PrivateRoute';
 // onSubmit: submit에 대해서는 onSubmit이라는 이벤트 줘야 함.
 function App() {
 
+  const [productList, setProductList] = useState([]);
+
+  const getProducts = async () => {
+    let url = "http://localhost:5000/products";
+    let response = await fetch(url)
+    let data = await response.json();
+    setProductList(data)
+  }
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
   const [authenticate, setAuthenticate] = useState(false)
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(authenticate)
   }, [authenticate])
 
   return (
     <div>
-      <Navbar />
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
       <Routes>
-        <Route path="/" element={<ProductAll />} />
-        <Route path="/login" element={<Login setAuthenticate={ setAuthenticate }/>} />
-        <Route path="/product/:id" element={<PrivateRoute authenticate={ authenticate } />} />
+        <Route path="/" element={<ProductAll productList={ productList }/>} />
+        <Route path="/login" element={<Login setAuthenticate={setAuthenticate} />} />
+        <Route path="/product/:id" element={<PrivateRoute authenticate={authenticate} productList={ productList } />} />
       </Routes>
     </div>
   );
