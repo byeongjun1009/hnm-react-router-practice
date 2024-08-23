@@ -84,3 +84,11 @@ input {
 .product-detail img {
   width: 100%;
 }
+
+.product-detail-col2 div {
+  margin-bottom: 30px;
+}
+
+.product-detail-col2 Button {
+  width: 100%;
+}
