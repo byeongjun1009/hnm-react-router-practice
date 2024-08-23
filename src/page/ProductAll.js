@@ -1,8 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../component/ProductCard';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useSearchParams } from 'react-router-dom';
 
-const ProductAll = ({ productList }) => {
+const ProductAll = () => {
+
+    const [productList, setProductList] = useState([]);
+    const [query, setQuery] = useSearchParams();
+
+    const getProducts = async () => {
+    let searchQuery=query.get('q') || "";
+      let url = `http://localhost:5000/products?q=${searchQuery}`;
+      let response = await fetch(url)
+      let data = await response.json();
+      setProductList(data)
+    }
+    
+    // api 호출 항상 useEffect에서 함.
+    useEffect(() => {
+      getProducts()
+    }, [query])
 
     return (
         <div className='product-all'>

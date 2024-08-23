@@ -23,6 +23,15 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         navigate('/')
     }
 
+    const search = (event) => {
+        if (event.key === "Enter") {
+            // 입력한 값 불러와서
+            let keyword = event.target.value
+            // url에 넣기
+            navigate(`/?q=${  keyword}`)
+        }
+    }
+
     return (
         <div>
             <div>
@@ -46,7 +55,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
                 </ul>
                 <div className='search-bar'>
                     <FontAwesomeIcon icon={faSearch} />
-                    <input type="" />
+                    <input type="text" onKeyPress={(event) => search(event)} />
                 </div>
             </div>
         </div>
