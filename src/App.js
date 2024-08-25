@@ -19,7 +19,7 @@ import PrivateRoute from './route/PrivateRoute';
 // onSubmit: submit에 대해서는 onSubmit이라는 이벤트 줘야 함.
 function App() {
 
-  const [authenticate, setAuthenticate] = useState(true)
+  const [authenticate, setAuthenticate] = useState(false)
 
   useEffect(() => {
 
