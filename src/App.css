@@ -1,8 +1,25 @@
+.login-menu-icon-area {
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  display: none;
+  margin-left: right;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .login-button {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  margin: 20px;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
   gap: 7px;
   font-size: 12px;
   cursor: pointer;
@@ -33,21 +50,78 @@
   left: 50%;
   transform: translateX(-50%);
   list-style-type: none;
+  padding: 0; /* 내부 패딩 제거 */
+  margin: 0; /* 외부 마진 제거 (필요시) */
 }
 
 .menu-list li {
-  padding: 10px;
+  padding: 20px;
+}
+
+.close-btn {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 18px;
+  display: none; /* 기본적으로 닫기 버튼 숨김 */
+}
+
+.menu-list.active .close-btn {
+  display: block; /* 메뉴가 활성화될 때 닫기 버튼 보임 */
+}
+
+
+/* 1200px 이하일 때 스타일 */
+@media screen and (max-width: 1200px) {
+  .close-btn {
+    display: block; /* 화면이 1200px 이하일 때 닫기 버튼 보임 */
+  }
+
+  .menu-list {
+    display: none; /* 기본적으로 숨김 */
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+  }
+
+  .menu-list.active {
+    display: flex; /* active 클래스가 있을 때만 보임 */
+    left: 0; /* 왼쪽 끝으로 이동 */
+    transform: translateX(0); /* 트랜스폼 초기화 */
+    width: 250px; /* 사이드바 너비 설정 */
+    height: 100%; /* 전체 화면 높이 차지 */
+    flex-direction: column; /* 항목을 세로로 정렬 */
+    position: fixed; /* 사이드바로 고정 */
+    top: 0; /* 화면 상단부터 시작 */
+    padding: 20px; /* 내부 패딩 */
+    color: white;
+  }
+
+  .menu-icon {
+    display: block; /* 햄버거 메뉴 버튼 보이기 */
+  }
 }
 
 .search-bar {
   margin-left: auto;
-  padding-right: 20px;
+  margin-right: 100px;
   border-bottom: 1px solid #000;
+}
+
+.search-bar-active {
+  margin: auto;
 }
 
 input {
   border: none;
-  /* outline: none; */
+  outline: none;
 }
 
 .product-all {
@@ -65,7 +139,8 @@ input {
 
 .product-card:hover {
   background-color: white;
-  transform: scale(1.1); /* 크기를 1.2배로 확대 */
+  transform: scale(1.1);
+  /* 크기를 1.2배로 확대 */
   transition: transform .7s ease;
   font-weight: 500;
   cursor: pointer;
@@ -82,13 +157,40 @@ input {
 }
 
 .product-detail img {
-  width: 100%;
+  margin-bottom: 20px;
 }
 
-.product-detail-col2 div {
+.product-detail-col2>div {
   margin-bottom: 30px;
 }
 
-.product-detail-col2 Button {
+.product-detail-col2-add-btn {
   width: 100%;
+  background-color: #000;
+  color: white;
+  font-size: 14px;
+  height: 50px;
+}
+
+.selectQuantity {
+  display: flex;
+  align-items: center;
+}
+
+.selectQuantity div {
+  display: flex;
+  width: 50px;
+  justify-content: center;
+}
+
+.selectQuantity-btn {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  justify-content: center;
+  border: none;
+}
+
+.selectQuantity-btn:hover {
+  background-color: #d9d9d9;
 }

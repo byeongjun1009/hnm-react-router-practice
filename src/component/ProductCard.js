@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom'
 
 const ProductCard = ({ item }) => {
 
+  function formatCurrency(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   const navigate = useNavigate();
 
   const showDetail = () => {
@@ -12,9 +16,9 @@ const ProductCard = ({ item }) => {
   return (
     <div className='product-card' onClick={ showDetail }>
         <img src={ item?.img } alt="" />
-        <div>{ item?.choice? "Conscious Choice": " " }</div>
+        <div><u>{ item?.choice? "Conscious Choice!": " " }</u></div>
         <div>{ item?.title }</div>
-        <div>\{ item?.price }</div>
+        <h3 style={{ marginBottom:"10px" }}>\{ item ? formatCurrency(item?.price) : "" }</h3>
         <div className='new-tag'>{ item?.new ? "신제품" : ""}</div>
     </div>
   )

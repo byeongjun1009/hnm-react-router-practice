@@ -1,0 +1,8 @@
+@font-face {
+    font-family: '온글잎 언즈체';
+    src: url(fonts/온글잎\ 언즈체.ttf) format("truetype");
+}
+
+body {
+    font-family: '온글잎 언즈체';
+}
