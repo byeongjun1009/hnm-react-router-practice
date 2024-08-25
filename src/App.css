@@ -158,6 +158,7 @@ input {
 
 .product-detail img {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .product-detail-col2>div {
